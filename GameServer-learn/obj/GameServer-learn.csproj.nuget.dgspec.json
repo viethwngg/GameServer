@@ -43,6 +43,16 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Grpc.AspNetCore.Server": {
+              "target": "Package",
+              "version": "[2.70.0, )"
+            },
+            "NetCoreServer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
