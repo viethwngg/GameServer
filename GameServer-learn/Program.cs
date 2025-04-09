@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using GameServer_learn.Application.Handlers;
+using GameServer_learn.Application.Interface;
 
 namespace GameServer_learn
 {
@@ -8,7 +9,8 @@ namespace GameServer_learn
     {
         static void Main(string[] args)
         {
-            var wsServer = new WsGameServer(IPAddress.Any, 8080);
+            IPlayerManager playersManager = new PlayersManager();
+            var wsServer = new WsGameServer(IPAddress.Any, 8080, playersManager);
             wsServer.StartServer();
             for (;;)
             {

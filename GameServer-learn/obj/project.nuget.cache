@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Xi7xrL17I2w=",
+  "dgSpecHash": "+0GoNwqeopw=",
   "success": true,
   "projectFilePath": "C:\\Users\\hungd\\Game server\\GameServer-learn\\GameServer-learn\\GameServer-learn.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hungd\\.nuget\\packages\\grpc.aspnetcore.server\\2.70.0\\grpc.aspnetcore.server.2.70.0.nupkg.sha512",
     "C:\\Users\\hungd\\.nuget\\packages\\grpc.core.api\\2.70.0\\grpc.core.api.2.70.0.nupkg.sha512",
     "C:\\Users\\hungd\\.nuget\\packages\\grpc.net.common\\2.70.0\\grpc.net.common.2.70.0.nupkg.sha512",
-    "C:\\Users\\hungd\\.nuget\\packages\\netcoreserver\\8.0.7\\netcoreserver.8.0.7.nupkg.sha512"
+    "C:\\Users\\hungd\\.nuget\\packages\\netcoreserver\\8.0.7\\netcoreserver.8.0.7.nupkg.sha512",
+    "C:\\Users\\hungd\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

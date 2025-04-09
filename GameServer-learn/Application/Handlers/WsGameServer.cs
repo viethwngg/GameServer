@@ -7,10 +7,14 @@ namespace GameServer_learn.Application.Handlers;
 
 public class WsGameServer: WsServer, IWsGameServer
 {
-    private int _port;
-    public WsGameServer(IPAddress address, int port) : base(address, port)
+    private readonly int _port;
+    // private readonly IGameLogger _logger;
+    public readonly IPlayerManager PlayerManager;
+    public WsGameServer(IPAddress address, int port, IPlayerManager playerManager) : base(address, port)
     {
         _port = port;
+        PlayerManager = playerManager;
+        //_logger = _logger;
     }
 
     protected override TcpSession CreateSession() //user connect vào cổng --> tạo session kết nối
@@ -19,9 +23,18 @@ public class WsGameServer: WsServer, IWsGameServer
         Console.WriteLine("New Session connected");
         return base.CreateSession();
     }
-    public WsGameServer(IPEndPoint endpoint, int port) : base(endpoint)
+    
+    
+    
+    public void SendAll(string mes)
+    {
+        this.MulticastText(mes);
+    }
+    
+    public WsGameServer(IPEndPoint endpoint, int port, IPlayerManager playerManager) : base(endpoint)
     {
         _port = port;
+        PlayerManager = playerManager;
     }
 
     public void StartServer()
@@ -49,6 +62,11 @@ public class WsGameServer: WsServer, IWsGameServer
     public void RestartServer()
     {
         //todo logic before restart server
+        // if (this.Restart())
+        // {
+        //     _logger.Print("Server restarted");
+        // }
         this.Restart();
     }
+    
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameServer-learn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a10344250b5aa81eae1c8844e0479b7e5886d615")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffd6e00df81f91bd9fa3780b2e39652aa594d8cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameServer-learn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameServer-learn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
