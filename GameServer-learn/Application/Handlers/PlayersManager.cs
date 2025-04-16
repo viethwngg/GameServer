@@ -13,7 +13,7 @@ public class PlayersManager: IPlayerManager
     }
     public void AddPlayer(IPlayer player)
     {
-        if (FindPlayer(player) == null)
+        if(FindPlayer(player) == null)
         {
             Players.TryAdd(player.SessionId, player);
             Console.WriteLine($"Player {player.SessionId} added");

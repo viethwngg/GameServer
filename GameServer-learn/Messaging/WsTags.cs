@@ -5,5 +5,7 @@ public enum WsTags
     Invalid,
     Login,
     Register,
-    Lobby
+    Lobby,
+    Run,
+    Stop
 }

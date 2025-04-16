@@ -1,5 +1,7 @@
 using System.Text;
 using GameServer_learn.Application.Interface;
+using GameServer_learn.Messaging;
+using GameServer_learn.Messaging.Constants;
 using NetCoreServer;
 
 namespace GameServer_learn.Application.Handlers;
@@ -19,6 +21,7 @@ public class Player: WsSession, IPlayer
     public override void OnWsConnected(HttpRequest request)
     {
         //todo login on player connected
+        var url = request.Url;
         Console.WriteLine("Player connected");
         IsDisconnected = false;
     }
@@ -32,8 +35,30 @@ public class Player: WsSession, IPlayer
     public override void OnWsReceived(byte[] buffer, long offset, long size)
     {
         var mess = Encoding.UTF8.GetString(buffer, (int)offset, (int)size);
-        Console.WriteLine($"Client {SessionId} sent message: {mess}");
-        ((WsGameServer) Server).SendAll($"{this.SessionId}send message: {mess}");
+        try
+        {
+            var wsMess = GameHelper.ParseStruct<WsMessage<object>>(mess);
+            switch (wsMess.Tags)
+            {
+                case WsTags.Invalid:
+                    break;
+                case WsTags.Login:
+                    var loginData = GameHelper.ParseStruct<LoginData>(wsMess.Data.ToString());
+                    var x = 10;
+                    break;
+                case WsTags.Register:
+                    break;
+                case WsTags.Lobby:
+                    break;
+                //throw new ArgumentOutOfRangeException();
+            }
+        }
+        catch (Exception e)
+        {
+            //todo send valid message
+            Console.WriteLine(e);
+        }
+        //((WsGameServer) Server).SendAll($"{this.SessionId} send message {mess}");
     }
     
     public void SerDisconnect(bool value)

@@ -9,8 +9,8 @@ namespace GameServer_learn
     {
         static void Main(string[] args)
         {
-            IPlayerManager playersManager = new PlayersManager();
-            var wsServer = new WsGameServer(IPAddress.Any, 8080, playersManager);
+            IPlayerManager playerManager = new PlayersManager();
+            var wsServer = new WsGameServer(IPAddress.Any, 8080, playerManager);
             wsServer.StartServer();
             for (;;)
             {
@@ -19,7 +19,7 @@ namespace GameServer_learn
                 {
                     wsServer.RestartServer();
                 }
-
+ 
                 if (type == "shutdown")
                 {
                     wsServer.StopServer();

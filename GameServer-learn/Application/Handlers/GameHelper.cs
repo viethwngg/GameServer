@@ -9,7 +9,7 @@ public static class GameHelper
         return JsonConvert.SerializeObject(data);
     }
 
-    public static T ParseString<T>(string data)
+    public static T ParseStruct<T>(string data)
     {
         return JsonConvert.DeserializeObject<T>(data);
     }
