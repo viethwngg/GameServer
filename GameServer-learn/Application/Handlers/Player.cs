@@ -11,12 +11,12 @@ public class Player: WsSession, IPlayer
     public string SessionId { get; set; }
     public string Name { get; set; }
     private bool IsDisconnected { get; set; }
-    public Player(WsServer server, string name) : base(server)
+    public Player(WsServer server) : base(server)
     {
-        Name = name;
         SessionId = this.Id.ToString();
         IsDisconnected = false;
     }
+    
 
     public override void OnWsConnected(HttpRequest request)
     {
@@ -66,9 +66,9 @@ public class Player: WsSession, IPlayer
         this.IsDisconnected = value;
     }
 
-    public bool SendMessage(string message)
+    public bool SendMessage(string mes)
     {
-        return this.SendTextAsync(message);
+        return this.SendTextAsync(mes);
     }
 
     public void OnDisconnect()

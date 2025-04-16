@@ -21,10 +21,23 @@ public class WsGameServer: WsServer, IWsGameServer
     {
         //todo handle new session 
         Console.WriteLine("New Session connected");
-        return base.CreateSession();
+        var player = new Player(this);
+        PlayerManager.AddPlayer(player);
+        return player;
     }
-    
-    
+
+    protected override void OnDisconnected(TcpSession session)
+    {
+        Console.WriteLine("Session disconnected");
+        var player = PlayerManager.FindPlayer(session.Id.ToString());
+        if (player != null)
+        {
+            //player.SetDisconnect(true);
+            PlayerManager.RemovePlayer(player);
+            //todo mark player disconnected
+        }
+        base.OnDisconnected(session);
+    }
     
     public void SendAll(string mes)
     {
